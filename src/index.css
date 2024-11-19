@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './css/index.css';
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.333), rgba(0, 0, 0, 0.1)), url("assets/background_banner.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.login-button {
+  padding: 8px 15px;
+  font-size: 14px;
+}
+
+.red-button {
+  display: flex;
+  cursor: pointer;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  background-color: #E50914;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  box-sizing: border-box;
+}
+
+.hover-button:hover {
+  background-color: #9d050c;
+}
+
+.shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(to right, #2c2c2c 4%, #333 25%, #2c2c2c 36%);
+  background-size: 1000px 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.error-page--content::before {
+  background: radial-gradient(ellipse at center,
+      rgba(0, 0, 0, 0.5) 0,
+      rgba(0, 0, 0, 0.2) 45%,
+      rgba(0, 0, 0, 0.1) 55%,
+      transparent 70%);
+  bottom: -10vw;
+  content: "";
+  left: 10vw;
+  position: absolute;
+  right: 10vw;
+  top: -10vw;
+  z-index: -1;
+}
