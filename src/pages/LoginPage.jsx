@@ -1,11 +1,14 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
-import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Header from "../components/Header";
 import CButton from "../components/CButton";
+import { setLoggingIn, setUser } from "../app/authSlice";
 
 const LoginPage = () => {
+	const dispatch =useDispatch();
+	const navigation = useNavigate();
+
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -13,7 +16,14 @@ const LoginPage = () => {
 
 	const handleLogin = (e) => {
 		e.preventDefault();
-		
+		 dispatch(setUser({
+            email:email,
+			password: "",
+			username:"UserTest",
+			image:""
+        }));
+        dispatch(setLoggingIn(true));
+		navigation("/")
 	};
 
 	return (
